@@ -1,0 +1,182 @@
+\documentclass[a4paper]{article}
+
+%   Pakete dazuladen%   VORAUSGESETZTE LIBS
+%   ------------------
+
+%   Ränder des Dokuments anpassen
+\usepackage[margin=0mm,top=0mm,left=0mm]{geometry}
+
+%   UTF-8 Encoding der TeX-Dateien
+\usepackage[utf8]{inputenc}
+
+%   deutsches Sprachpaket
+\usepackage[german]{babel}
+
+%   optischer Randausgleich
+\usepackage{microtype}
+
+%   Einbinden von Grafiken
+\usepackage{graphicx}
+
+%   Definieren und Verwenden von Farben
+\usepackage{color}
+
+%   TikZ zum "Malen" von Grafiken, in diesem Falle für die Karten
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows}
+\usepackage{newclude}
+%   weitere Symbole
+\usepackage{fourier-orns}
+%   Farbdefinitionen laden%   FARBEN DER ELEMENTE/BESTANDTEILE DER KARTEN
+%   -----------------------------------------
+
+%   Hintergrundfarbe für den Titel-Kasten
+\definecolor{titlebg}{RGB}{30,30,30}
+
+%   Farben der "Fähnchen" zur Kennzeichnung der unterschiedlichen Kartentypen
+\definecolor{characterbg}{RGB}{0,100,200}
+\definecolor{abilitybg}{RGB}{80,180,0}
+\definecolor{itembg}{RGB}{200,50,50}
+\definecolor{testbg}{RGB}{180,50,150}
+\definecolor{eogreen}{RGB}{0,159,0}
+\definecolor{eored}{RGB}{159,0,0}
+\definecolor{eogray}{RGB}{159,159,159}
+\definecolor{eoyellow}{RGB}{159,159,0}
+
+%   Farbe des "Fähnchens" zur Angabe des Preises der Karten
+\definecolor{pricebg}{RGB}{230,180,0}
+
+%   Hintergrundfarbe für den Textbereich
+%\definecolor{content}{RGB}{250,250,245}
+\definecolor{contentbg}{RGB}{255,255,255}
+%   \card-Commands laden%   COMMANDS ZUM ZUSAMMENBAUEN DER KARTEN
+%   ---------------------------------------
+
+%   TikZ/PGF Settings für die Karten
+\pgfmathsetmacro{\cardwidth}{6}
+\pgfmathsetmacro{\cardheight}{9.2725}
+\pgfmathsetmacro{\imagewidth}{\cardwidth*.88}
+\pgfmathsetmacro{\imageheight}{0.75*\cardheight}
+\pgfmathsetmacro{\stripwidth}{0.25}
+\pgfmathsetmacro{\strippadding}{0.2}
+\pgfmathsetmacro{\textpadding}{0.1}
+\pgfmathsetmacro{\titley}{\cardheight-\strippadding-1.5*\textpadding-0.5*\stripwidth}
+
+%   Formen der einzelnen Kartenelemente/-bestandteile
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+
+\def\shapeTitleArea{(\stripwidth,\cardheight-\strippadding) rectangle (\cardwidth-\stripwidth,\cardheight-4*\stripwidth)}
+
+\def\shapeContentArea{(0.25,0.275*\cardheight) rectangle (\cardwidth-0.25, 0.025*\cardheight)}
+
+\def\shapeImArea{(.25,\cardheight*.865) rectangle (\cardwidth-0.25,\cardheight*.31)}
+
+
+%   Stylings für die Elemente definieren
+\tikzset{
+	%   runde Ecken für die Karten
+	cardcorners/.style={
+		rounded corners=0.0cm
+	},
+	imcorners/.style={
+	rounded corners=0.0cm
+	},
+	%   runde Ecken für die "Fähnchen"
+	elementcorners/.style={
+		rounded corners=0.1cm
+	},
+	%   Schlagschatten für die "Fähnchen"
+	stripshadow/.style={
+		drop shadow={
+			opacity=.2,
+			shadow,
+			color=black
+		}
+	},
+	%   Style für die "Fähnchen"
+	strip/.style={
+		elementcorners,
+		stripshadow
+	},
+	%   Bild für das Kartenmotiv
+	cardimage/.style={
+		path picture={
+			\clip [rounded corners=.2cm] (.45,3.1) rectangle coordinate (0, 0) (\imagewidth+.2,\imagewidth+2.5);
+			\node [inner sep=0pt] at (0.55*\cardwidth-.15,0.585*\cardheight) {
+				\includegraphics[width=\imagewidth cm]{#1}
+			};
+		}
+	},
+	%   Bild für das Kartenmotiv
+	cardbg/.style={
+		fill=#1,
+		opacity=.5
+	},
+	%   Bild für das Kartenmotiv
+	imagebg/.style={
+	rounded corners=0.2cm,
+	},
+}
+
+%   TikZ-Raster
+\newcommand{\carddebug}{
+	\draw [step=1,help lines] (0,0) grid (\cardwidth,\cardheight);
+}
+
+%   Rahmen der Karte
+\newcommand{\cardborder}{
+	\draw[lightgray,cardcorners] \shapeCard;
+}
+
+%   Hintergrund der Karte
+\newcommand{\cardbackground}[2]{
+	\draw[cardcorners, cardbg=#2] \shapeCard;
+	\fill[imagebg, white] \shapeImArea;
+	\draw[imcorners, cardimage=#1] \shapeCard;
+}
+
+%   Titel der Karte
+\newcommand{\cardtitle}[1]{
+	%\draw[pattern=soft crosshatch,rounded corners=0.1cm] \shapeTitleArea;
+	\fill[elementcorners,titlebg,opacity=.85] \shapeTitleArea;
+	\node[text width=5cm, rounded corners=.5cm] at (0.5*\cardwidth,\titley) {
+		\begin{center}
+			\color{white}{\normalsize #1}
+		\end{center}
+	};
+}
+
+%   Inhalt der Karte
+\newcommand{\cardcontent}[1]{
+	\begin{scope}[even odd rule]
+		\clip[cardcorners] \shapeCard;
+		\fill[elementcorners,contentbg] \shapeContentArea;
+	\end{scope}
+	\node[below right, text width=(\cardwidth-2*\strippadding-2*\textpadding-0.3)*1cm] at (2*\strippadding+\textpadding,2.5) {
+		\\[-1.5pt]
+		\vspace{0.2cm}
+		{\scriptsize \textbf{#1}}
+	};
+}
+
+%   Preis der Karte
+\newcommand{\cardprice}[1]{
+	\begin{scope}[even odd rule]
+		\clip[cardcorners] \shapeCard;
+		\fill[strip,pricebg] \shapeRightStripShort;
+	\end{scope}
+	\node at (\cardwidth-0.5*\stripwidth-\strippadding,\titley-0.1) {\color{black}#1};
+}
+
+%   Dummy-Contents
+\newcommand{\contentA}{Neunmalkluges Zitat\\mit Bezug zur Karte von einer fiktiven Figur.}
+\newcommand{\contentB}{Auswirkungen:\\[5pt]Ziehe 2 Karten, nimm 3 Gold, lege alles ab, lauf weg …}
+
+\begin{document}
+	\sffamily
+	\begin{center}
+		\pagestyle{empty}
+		\include*{kartaro}
+	\end{center}
+\end{document}

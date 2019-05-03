@@ -1,0 +1,172 @@
+[
+    {
+        "title": "INTELIGENTECO",
+        "kvanto": 6,
+        "img": "img/inteligenco.jpg",
+        "koloro": "eogreen",
+        "teksto": "Forĵetu karton de via mano.\\ Plantmanĝanto: Manĝu 2 aldonajn plantmanĝojn\\ Rabobesto: Ignoru 1 kapablon je ĉiuj aliaj specoj por tiu atako.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "EMBUSKO",
+        "kvanto": 6,
+        "img": "img/embusko.jpg",
+        "koloro": "eored",
+        "teksto": "La rabobesto povas ataki bestojn protektataj de 'Avertkrio'.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "KOLEGO",
+        "kvanto": 6,
+        "img": "img/kolego.jpg",
+        "koloro": "eogreen",
+        "teksto": "Prenu 1 plantan manĝon de la provizo, kiam malkovris la manĝkartoj.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": true
+    },
+    {
+        "title": "KOOPERADO",
+        "kvanto": 6,
+        "img": "img/koorp.jpg",
+        "koloro": "eogreen",
+        "teksto": "Se tio speco manĝas, via speco dekstre de ĝi ricevas 1 manĝon de la sama fonto.",
+        "dekstra": true,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "GRUPĈASO",
+        "kvanto": 6,
+        "img": "img/grupcxaso.jpg",
+        "koloro": "eored",
+        "teksto": "Tio rabobesto adicias sian populacion al sia grandeco, kiam ĝi atakas aliajn bestojn.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "RABOBESTO",
+        "kvanto": 14,
+        "img": "img/carnivora.jpg",
+        "koloro": "eored",
+        "teksto": "Devas ataki por manĝi. Devas esti pli grande por manĝi aliajn. Ne povas manĝi plantojn.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "GRASA REZERVO",
+        "kvanto": 6,
+        "img": "img/dika.jpg",
+        "koloro": "eogreen",
+        "teksto": "Tio besto povas enteni la kvanton de manĝo same kiel sia grandeco por uzado en sekva rondo.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": true
+    },
+    {
+        "title": "GLUTEMA",
+        "kvanto": 6,
+        "img": "img/glutema.jpg",
+        "koloro": "eogreen",
+        "teksto": "Se tio speco manĝas de la planta provizo, ĝi ricevas 2 manĝojn.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "KADAVROMANĜANTO",
+        "kvanto": 6,
+        "img": "img/kadavro.jpg",
+        "koloro": "eogreen",
+        "teksto": "Tio besto ricevas 1 manĝon, ĉiam kiam alia besto estas sukcese atakata.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "GRIMPANTO",
+        "kvanto": 6,
+        "img": "img/grimpi.jpg",
+        "koloro": "eogray",
+        "teksto": "Tio besto nur estas atakebla de rabobestoj kiuj ankaŭ estas grimpantoj.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "KORNOJ",
+        "kvanto": 6,
+        "img": "img/korno.jpg",
+        "koloro": "eogray",
+        "teksto": "Atakantoj perdas 1 de sia populacio, kiam ĝi manĝas tio speco.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "GREGA PROTEKTO",
+        "kvanto": 6,
+        "img": "img/grupo.jpg",
+        "koloro": "eogray",
+        "teksto": "Tio speco nur estas atakebla, se la rabobesto estas pli grande je grandeco KAJ populacio.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "KORNECA KIRASO",
+        "kvanto": 6,
+        "img": "img/testudo.jpg",
+        "koloro": "eogray",
+        "teksto": "Por atakantoj tio besto havas tri pli da grandeco.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "SIMBIOZO",
+        "kvanto": 6,
+        "img": "img/simbioso.jpg",
+        "koloro": "eogray",
+        "teksto": "Tio besto estas neatakebla, se via besto dekstre de ĝi estas pli grande.",
+        "dekstra": true,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "KAŜADO",
+        "kvanto": 6,
+        "img": "img/kasxado.jpg",
+        "koloro": "eogray",
+        "teksto": "Tio besto estas neatakebla, se la kvanto de manĝo samas la kvanto de la populacio.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": false
+    },
+    {
+        "title": "AVERTKRIO",
+        "kvanto": 6,
+        "img": "img/krio.jpg",
+        "koloro": "eogray",
+        "teksto": "Viaj apudaj bestoj nur estas atakeblaj de bestoj, kiuj havas 'Embuskon'",
+        "dekstra": true,
+        "maldekstra": true,
+        "nurplanta": false
+    },
+    {
+        "title": "NASKEMA",
+        "kvanto": 6,
+        "img": "img/nestejo.jpg",
+        "koloro": "eoyellow",
+        "teksto": "Se antaŭ la malkovro de la manĝkartojn ankoraŭ haveblas manĝon, tio speco kreskas 1 en sia populacio.",
+        "dekstra": false,
+        "maldekstra": false,
+        "nurplanta": true
+    }
+]
