@@ -11,7 +11,7 @@ Dankon al wikimedia por la libraj bildoj por la kartoj.
 ## Krei la kartaron
 
 ```
-python genkartoj.py
+python3 genkartoj.py
 ```
 
 Kaj poste kompili en LaTeX. Mi uzis texlive sub Manjaro Linux.
